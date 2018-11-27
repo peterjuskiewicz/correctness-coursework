@@ -22,7 +22,7 @@ public class Profile {
 		boolean isPass =
 				g.stream().map(item -> item.classify()).collect(Collectors.toList()).contains(Classification.Fail);
 		
-		if(g.size() == 0 || isPass) {
+		if(g.size() != 4 || isPass || g.isEmpty()) {
 			throw new IllegalArgumentException();
 		} 
 		
@@ -66,15 +66,16 @@ public class Profile {
 		
 		if(classification == Classification.First || classification == Classification.UpperSecond) {
 			
-			if(third == 1) {
-				return false;
-			} else {
+			if(this.third == 0) {
 				return true;
-			}
-			
+			} else {
+				return false;
+			}			
+		} else {
+			return true;
 		}
 		
-		return false;
+		
 		
 	}
 }

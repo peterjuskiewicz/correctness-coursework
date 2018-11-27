@@ -196,7 +196,7 @@ public class DegreeTest {
 		list2.add(Grade.fromPercentage(40));
 		list2.add(Grade.fromPercentage(40));
 		list2.add(Grade.fromPercentage(40));
-		list2.add(Grade.fromPercentage(30));
+		list2.add(Grade.fromPercentage(40));
 		
 
 		Degree degree = new Degree(list1, list2);
