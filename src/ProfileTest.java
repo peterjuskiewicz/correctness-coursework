@@ -59,7 +59,7 @@ public class ProfileTest {
 		list.add(Grade.fromPercentage(40));
 		list.add(Grade.fromPercentage(50));
 		list.add(Grade.fromPercentage(40));
-		list.add(Grade.fromPercentage(50));
+		list.add(Grade.fromPercentage(40));
 		
 		Profile profile = new Profile(list);
 		
@@ -68,29 +68,11 @@ public class ProfileTest {
 	}
 	
 	@Test
-	public void ShouldReturnTrueForBorderlineMerit() {
-		
-		List<Grade> list = new ArrayList<>();
-		
-		list.add(Grade.fromPercentage(40));
-		list.add(Grade.fromPercentage(65));
-		list.add(Grade.fromPercentage(65));
-		list.add(Grade.fromPercentage(100));
-		
-		Profile profile = new Profile(list);
-		
-		assertEquals(profile.classify(), Classification.UpperSecond);
-		
-		assertTrue(profile.isClear());
-		
-	}
-	
-	@Test
 	public void ShouldReturnFalseForBorderlineMerit() {
 		
 		List<Grade> list = new ArrayList<>();
 		
-		list.add(Grade.fromPercentage(65));
+		list.add(Grade.fromPercentage(40));
 		list.add(Grade.fromPercentage(65));
 		list.add(Grade.fromPercentage(65));
 		list.add(Grade.fromPercentage(100));
@@ -104,18 +86,18 @@ public class ProfileTest {
 	}
 	
 	@Test
-	public void ShouldReturnTrueForBorderlineDistinction() {
+	public void ShouldReturnTrueForBorderlineMerit() {
 		
 		List<Grade> list = new ArrayList<>();
 		
-		list.add(Grade.fromPercentage(40));
-		list.add(Grade.fromPercentage(100));
-		list.add(Grade.fromPercentage(100));
+		list.add(Grade.fromPercentage(65));
+		list.add(Grade.fromPercentage(65));
+		list.add(Grade.fromPercentage(65));
 		list.add(Grade.fromPercentage(100));
 		
 		Profile profile = new Profile(list);
 		
-		assertEquals(profile.classify(), Classification.First);
+		assertEquals(profile.classify(), Classification.UpperSecond);
 		
 		assertTrue(profile.isClear());
 		
@@ -126,7 +108,7 @@ public class ProfileTest {
 		
 		List<Grade> list = new ArrayList<>();
 		
-		list.add(Grade.fromPercentage(100));
+		list.add(Grade.fromPercentage(40));
 		list.add(Grade.fromPercentage(100));
 		list.add(Grade.fromPercentage(100));
 		list.add(Grade.fromPercentage(100));
@@ -136,6 +118,24 @@ public class ProfileTest {
 		assertEquals(profile.classify(), Classification.First);
 		
 		assertFalse(profile.isClear());
+		
+	}
+	
+	@Test
+	public void ShouldReturnTrueForBorderlineDistinction() {
+		
+		List<Grade> list = new ArrayList<>();
+		
+		list.add(Grade.fromPercentage(100));
+		list.add(Grade.fromPercentage(100));
+		list.add(Grade.fromPercentage(100));
+		list.add(Grade.fromPercentage(100));
+		
+		Profile profile = new Profile(list);
+		
+		assertEquals(profile.classify(), Classification.First);
+		
+		assertTrue(profile.isClear());
 		
 	}
 
