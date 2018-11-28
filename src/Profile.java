@@ -27,12 +27,6 @@ public class Profile {
 		} 
 		
 		gradesList = g;	
-	}
-	
-	
-	public Classification classify() {
-		
-		
 		
 		for(int i = 0; i < 4; i++) {
 			
@@ -47,6 +41,13 @@ public class Profile {
 			} else if(grade == Classification.Third) {
 				third++;
 			}}
+		
+		
+	}
+	
+	
+	public Classification classify() {
+		
 		
 		if(first >= 2 && third <= 1) {
 			return Classification.First;
@@ -64,18 +65,14 @@ public class Profile {
 		
 		Classification classification = this.classify();
 		
-		if(classification == Classification.First || classification == Classification.UpperSecond) {
-			
-			if(this.third == 0) {
-				return true;
-			} else {
-				return false;
-			}			
-		} else {
+		if(classification != Classification.First && classification != Classification.UpperSecond) {
 			return true;
 		}
 		
+		if(third == 0) {
+			return true;
+		}
 		
-		
+		return false;
 	}
 }
