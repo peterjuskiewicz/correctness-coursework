@@ -8,9 +8,21 @@ public class Degree {
 
 	public Degree(List<Grade> year2, List<Grade> year3) {
 		
-		profile5 = new Profile(year2);
+		if( year2 == null || year3 == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		
+		if(year2.isEmpty() || year3.isEmpty()) {
+			throw new IllegalArgumentException();
+		}
+		
+
 		profile6 = new Profile(year3);
 		
+		year2.addAll(year3);
+		
+		profile5 = new Profile(year2);
 	
 	}
 		

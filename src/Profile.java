@@ -2,7 +2,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Profile {
-	// Your additions/changes below this line
 	
 	// Classification counters
 	
@@ -22,13 +21,13 @@ public class Profile {
 		boolean isPass =
 				g.stream().map(item -> item.classify()).collect(Collectors.toList()).contains(Classification.Fail);
 		
-		if(g.size() != 4 || isPass || g.isEmpty()) {
+		if(g.size() != 4 && g.size() != 8 || isPass || g.isEmpty()) {
 			throw new IllegalArgumentException();
 		} 
 		
 		gradesList = g;	
 		
-		for(int i = 0; i < 4; i++) {
+		for(int i = 0; i < gradesList.size(); i++) {
 			
 			Classification grade = this.gradesList.get(i).classify();
 			
@@ -48,12 +47,18 @@ public class Profile {
 	
 	public Classification classify() {
 		
+		int totalGrades = first + upperSecond + lowerSecond + third;
 		
-		if(first >= 2 && third <= 1) {
+		int firstPercent = first * 100 / totalGrades;
+		int upperSecondPercent = upperSecond * 100 / totalGrades;
+		int lowerSecondPercent = lowerSecond * 100 / totalGrades;
+		int thirdPercent = third * 100 / totalGrades;
+		
+		if(firstPercent >= 50 && thirdPercent <= 25) {
 			return Classification.First;
-		} else if (upperSecond >= 2 && third <= 1) {
+		} else if (upperSecondPercent >= 50 && thirdPercent <= 25) {
 			return Classification.UpperSecond;
-		} else if (lowerSecond >= 2) {
+		} else if (lowerSecondPercent >= 50) {
 			return Classification.LowerSecond;
 		}else{
 			return Classification.Third;
