@@ -15,7 +15,7 @@ public class Grade {
 
 	public Classification classify() {
 		
-		Classification classification;
+		Classification classification = Classification.Fail;
 		
 		int points = this.getPoints();
 		
@@ -29,8 +29,6 @@ public class Grade {
 		case 8: case 7: case 6: case 5: classification = Classification.UpperSecond;
 		break;
 		case 4: case 3: case 2: case 1: classification = Classification.First;
-		break;
-		default: classification = Classification.Fail;
 		}
 		
 		return classification;
