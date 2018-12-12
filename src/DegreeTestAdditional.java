@@ -53,4 +53,29 @@ public class DegreeTestAdditional {
 		Degree degree = new Degree(list1, list2);
 	}
 	
+	@Test
+	public void ShouldClassifyWithProfile5HigherAndNotClear() {
+		
+		List<Grade> list1 = new ArrayList<>();
+		List<Grade> list2 = new ArrayList<>();
+		
+		list1.add(Grade.fromPercentage(40));
+		list1.add(Grade.fromPercentage(40));
+		list1.add(Grade.fromPercentage(60));
+		list1.add(Grade.fromPercentage(60));
+		
+		
+		
+		list2.add(Grade.fromPercentage(60));
+		list2.add(Grade.fromPercentage(60));
+		list2.add(Grade.fromPercentage(60));
+		list2.add(Grade.fromPercentage(60));
+		
+
+		Degree degree = new Degree(list1, list2);
+		
+		assertEquals(degree.classify(), Classification.UpperSecond);
+			
+	}
+	
 }

@@ -171,8 +171,8 @@ public class DegreeTest {
 		
 		
 		list2.add(Grade.fromPercentage(60));
-		list2.add(Grade.fromPercentage(60));
-		list2.add(Grade.fromPercentage(60));
+		list2.add(Grade.fromPercentage(40));
+		list2.add(Grade.fromPercentage(40));
 		list2.add(Grade.fromPercentage(40));
 		
 

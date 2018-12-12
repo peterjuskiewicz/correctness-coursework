@@ -69,13 +69,16 @@ public class Profile {
 
 	public boolean isClear() {
 		
+		int totalGrades = first + upperSecond + lowerSecond + third;
+		int thirdPercent = third * 100 / totalGrades;
+		
 		Classification classification = this.classify();
 		
 		if(classification != Classification.First && classification != Classification.UpperSecond) {
 			return true;
 		}
 		
-		if(third == 0) {
+		if(thirdPercent <= 25) {
 			return true;
 		}
 		

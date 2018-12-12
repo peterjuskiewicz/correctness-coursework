@@ -75,7 +75,7 @@ public class ProfileTest {
 		list.add(Grade.fromPercentage(40));
 		list.add(Grade.fromPercentage(65));
 		list.add(Grade.fromPercentage(65));
-		list.add(Grade.fromPercentage(100));
+		list.add(Grade.fromPercentage(40));
 		
 		Profile profile = new Profile(list);
 		
@@ -109,7 +109,7 @@ public class ProfileTest {
 		List<Grade> list = new ArrayList<>();
 		
 		list.add(Grade.fromPercentage(40));
-		list.add(Grade.fromPercentage(100));
+		list.add(Grade.fromPercentage(40));
 		list.add(Grade.fromPercentage(100));
 		list.add(Grade.fromPercentage(100));
 		
