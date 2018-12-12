@@ -138,6 +138,7 @@ public class ProfileTest {
 		assertTrue(profile.isClear());
 		
 	}
+	
 
 
 }

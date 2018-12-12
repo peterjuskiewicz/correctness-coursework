@@ -12,16 +12,16 @@ public class Profile {
 	
 	private List<Grade> gradesList;
 
-	public Profile(List<Grade> g) {
+	public Profile(List<Grade> g) throws IllegalArgumentException{
 		
-		if(g == null) {
+		if(g == null || g.isEmpty()) {
 			throw new IllegalArgumentException();
 		}
 		
 		boolean isPass =
 				g.stream().map(item -> item.classify()).collect(Collectors.toList()).contains(Classification.Fail);
 		
-		if(g.size() != 4 && g.size() != 8 || isPass || g.isEmpty()) {
+		if(g.size() != 4 && g.size() != 8 || isPass) {
 			throw new IllegalArgumentException();
 		} 
 		
@@ -37,7 +37,7 @@ public class Profile {
 				upperSecond++;
 			} else if(grade == Classification.LowerSecond) {
 				lowerSecond++;
-			} else if(grade == Classification.Third) {
+			} else {
 				third++;
 			}}
 		
@@ -54,15 +54,16 @@ public class Profile {
 		int lowerSecondPercent = lowerSecond * 100 / totalGrades;
 		int thirdPercent = third * 100 / totalGrades;
 		
-		if(firstPercent >= 50 && thirdPercent <= 25) {
-			return Classification.First;
-		} else if (upperSecondPercent >= 50 && thirdPercent <= 25) {
+		if(firstPercent >= 50) {
+			return Classification.First;	
+		} else if (upperSecondPercent >= 50) {
 			return Classification.UpperSecond;
 		} else if (lowerSecondPercent >= 50) {
 			return Classification.LowerSecond;
 		}else{
 			return Classification.Third;
 		}
+		
 		
 	}
 

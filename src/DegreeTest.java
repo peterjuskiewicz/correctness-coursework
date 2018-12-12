@@ -23,10 +23,12 @@ public class DegreeTest {
 	}
 	
 	@Test (expected = IllegalArgumentException.class)
-	public void ShouldThrowIllegalArgumentExceptionIfConstructorRecivesEmptyList() {
+	public void ShouldThrowIllegalArgumentExceptionIfConstructorRecivesNotFour() {
 		
 		List<Grade> list1 = new ArrayList<>();
 		List<Grade> list2 = new ArrayList<>();
+		
+		list1.add(Grade.fromPercentage(100));
 		
 		list2.add(Grade.fromPercentage(100));
 		list2.add(Grade.fromPercentage(100));
@@ -194,7 +196,7 @@ public class DegreeTest {
 		
 		
 		list2.add(Grade.fromPercentage(60));
-		list2.add(Grade.fromPercentage(60));
+		list2.add(Grade.fromPercentage(40));
 		list2.add(Grade.fromPercentage(40));
 		list2.add(Grade.fromPercentage(40));
 		
